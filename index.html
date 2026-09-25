@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LongWave株式会社｜エンジニア紹介・営業支援（東京・福岡）</title>
+<meta name="description" content="LongWaveは、バイリンガルITエンジニアの人材紹介と、全国・地方の訪問営業人材ネットワークを活かした営業支援で、日本企業の成長を支える人材のプロフェッショナル集団です。東京・福岡。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A1633;
+  --deep:#050E24;
+  --blue:#1E5EFF;
+  --sky:#5AA9FF;
+  --ice:#EEF3FB;
+  --yellow:#FFC629;
+  --text:#3A4560;
+  --muted:#7A849C;
+  --line:#D9E0EC;
+  --line-d:rgba(255,255,255,.14);
+  --max:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Noto Sans JP",system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.9;letter-spacing:.04em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 40px}
+
+/* ===== Floating header ===== */
+.hd{position:fixed;top:20px;left:50%;transform:translateX(-50%);width:calc(100% - 80px);max-width:var(--max);z-index:60;display:flex;justify-content:space-between;align-items:center;padding:10px 10px 10px 22px;border-radius:14px;background:rgba(255,255,255,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(10,22,51,.06);transition:background .3s,color .3s}
+.hd.dark{background:rgba(5,14,36,.55);border-color:rgba(255,255,255,.08);color:#fff}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{width:38px}
+.brand .nm{font-family:"Inter Tight";font-weight:600;font-size:20px;letter-spacing:-.01em;line-height:1}
+.brand .nm small{display:block;font-size:10.5px;font-weight:500;letter-spacing:.04em;opacity:.6;margin-top:4px}
+.hd nav{display:flex;align-items:center;gap:30px}
+.hd nav a.l{font-family:"Inter Tight";font-size:14px;font-weight:500;opacity:.8}
+.hd nav a.l:hover{opacity:1}
+.menu{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:#fff;border:0;border-radius:10px;padding:13px 20px;font:500 14px "Inter Tight";cursor:pointer}
+.hd.dark .menu{background:#fff;color:var(--ink)}
+.menu i{display:grid;gap:3px}.menu i b{width:3px;height:3px;border-radius:50%;background:currentColor;display:block}
+
+.overlay{position:fixed;inset:0;z-index:55;background:var(--deep);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:0 40px;opacity:0;pointer-events:none;transition:opacity .35s}
+.overlay.open{opacity:1;pointer-events:auto}
+.overlay a{font-family:"Inter Tight";font-size:clamp(34px,6vw,64px);font-weight:500;line-height:1.35;display:flex;gap:18px;align-items:baseline}
+.overlay a small{font-family:"Noto Sans JP";font-size:13px;opacity:.55}
+.overlay a:hover{color:var(--yellow)}
+
+/* ===== Dot button ===== */
+.dot-btn{display:inline-flex;align-items:center;gap:22px;font-family:"Inter Tight";font-weight:500;font-size:18px}
+.dot-btn .c{width:64px;height:64px;border-radius:50%;background:var(--ink);display:grid;place-items:center;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.dot-btn .c::after{content:"";width:8px;height:8px;border-radius:50%;background:#fff;transition:transform .35s}
+.dot-btn:hover .c{transform:scale(1.12)}
+.dot-btn:hover .c::after{transform:scale(1.6);background:var(--yellow)}
+.on-dark .dot-btn .c{background:#fff}
+.on-dark .dot-btn .c::after{background:var(--ink)}
+
+/* ===== Intro: scroll-fill wordmark ===== */
+.intro{height:260vh;position:relative}
+.intro-stick{position:sticky;top:0;height:100vh;display:grid;place-items:center;overflow:hidden}
+.fill{font-family:"Inter Tight";font-weight:500;font-size:clamp(48px,11vw,168px);letter-spacing:-.035em;line-height:1;white-space:nowrap;position:relative}
+.fill span{color:#DCE2EC;transition:color .25s}
+.fill span.on{color:var(--ink)}
+.fill span.acc.on{color:var(--blue)}
+.intro-sub{position:absolute;bottom:12vh;left:0;right:0;text-align:center;font-size:14px;color:var(--muted);letter-spacing:.2em;opacity:0;transition:opacity .6s}
+.intro-sub.show{opacity:1}
+.intro-glow{position:absolute;width:60vw;height:60vw;max-width:780px;max-height:780px;border-radius:50%;background:radial-gradient(circle,rgba(90,169,255,.28),rgba(30,94,255,.08) 45%,transparent 70%);filter:blur(20px);opacity:0;transition:opacity .8s}
+.intro-glow.show{opacity:1}
+
+/* ===== Vision ===== */
+.vision{padding:40px 0 160px}
+.vision-in{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.vision h2{font-size:clamp(34px,4.6vw,64px);font-weight:900;line-height:1.5;letter-spacing:.04em}
+.vision h2 .ln{display:block;overflow:hidden}
+.vision h2 .ln>span{display:inline-block;transform:translateY(105%);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.vision.in h2 .ln>span{transform:none}
+.vision h2 .ln:nth-child(2)>span{transition-delay:.12s}
+.vision h2 .ln:nth-child(3)>span{transition-delay:.24s}
+.vision h2 em{font-style:normal;color:var(--blue)}
+.vision p{margin:40px 0 48px;color:var(--text);max-width:520px}
+.v-orb{position:relative;aspect-ratio:1;max-width:480px;justify-self:end;width:100%}
+
+/* ===== Orbs (shared) ===== */
+.ring{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 200deg,#1E5EFF,#5AA9FF 25%,#9FD0FF 38%,#FFC629 52%,#1E5EFF 70%,#2B3FBF 85%,#1E5EFF);-webkit-mask:radial-gradient(circle,transparent 60%,#000 61%,#000 70%,transparent 71%);mask:radial-gradient(circle,transparent 60%,#000 61%,#000 70%,transparent 71%);filter:blur(14px);opacity:.85;animation:spin 24s linear infinite}
+.ring.sharp{filter:blur(2px);opacity:.5;-webkit-mask:radial-gradient(circle,transparent 69%,#000 69.5%,#000 70%,transparent 70.5%);mask:radial-gradient(circle,transparent 69%,#000 69.5%,#000 70%,transparent 70.5%)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.bubble{position:absolute;border-radius:50%;display:grid;place-items:center;font-family:"Inter Tight";font-weight:500;color:#fff;text-align:center;line-height:1.2;
+  background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.75) 0 4%,rgba(255,255,255,.18) 14%,transparent 38%),radial-gradient(circle at 50% 50%,var(--c1,#1E5EFF) 0%,var(--c2,#0A1A3F) 70%);
+  box-shadow:inset 0 0 30px rgba(255,255,255,.25),inset -10px -14px 40px rgba(0,0,0,.35),0 20px 60px rgba(30,94,255,.25);animation:float 7s ease-in-out infinite}
+.bubble.y{--c1:#FFD65C;--c2:#9A6A00;color:var(--ink);box-shadow:inset 0 0 30px rgba(255,255,255,.4),inset -10px -14px 40px rgba(0,0,0,.2),0 20px 60px rgba(255,198,41,.25)}
+.bubble.s{--c1:#6FB6FF;--c2:#123A80}
+.bubble.g{--c1:rgba(255,255,255,.35);--c2:rgba(255,255,255,.04);backdrop-filter:blur(3px);border:1px solid rgba(255,255,255,.35)}
+@keyframes float{50%{transform:translateY(-12px)}}
+.orb-lines{position:absolute;inset:0;width:100%;height:100%}
+
+/* ===== Rows ===== */
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:140px 1fr auto;align-items:center;gap:28px;padding:30px 4px;border-bottom:1px solid var(--line);transition:padding .3s}
+.row:hover{padding-left:14px}
+.row .d{font-family:"Inter Tight";color:var(--muted);font-size:14px}
+.row .t{font-weight:500}
+.row .c{width:48px;height:48px;border-radius:50%;background:var(--ink);display:grid;place-items:center}
+.row .c::after{content:"";width:6px;height:6px;border-radius:50%;background:#fff}
+.row:hover .c::after{background:var(--yellow)}
+
+/* ===== Dark: Why ===== */
+.why{background:var(--deep);color:#fff;padding:160px 0 120px;border-radius:40px 40px 0 0;position:relative;overflow:hidden}
+.why .kicker{text-align:center;font-family:"Inter Tight";font-size:18px;opacity:.8}
+.why .ttl{text-align:center;font-size:clamp(28px,3.6vw,46px);font-weight:900;margin-top:10px}
+.why .ttl em{font-style:normal;color:var(--yellow)}
+.w-item{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:120px 0 0}
+.w-item:nth-child(even) .w-vis{order:2}
+.w-vis{position:relative;aspect-ratio:1;max-width:500px;width:100%;justify-self:center}
+.w-item h3{font-family:"Inter Tight";font-weight:500;font-size:clamp(36px,4.4vw,60px);line-height:1.08;letter-spacing:-.025em}
+.w-item h4{font-size:20px;font-weight:700;margin:30px 0 16px}
+.w-item p{color:rgba(255,255,255,.68);font-size:15px;margin-bottom:40px;max-width:460px}
+
+/* ===== Dark: Numbers ===== */
+.nums{background:var(--deep);color:#fff;padding:60px 0 140px}
+.nums-hd{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:48px}
+.nums-hd h2{font-size:clamp(26px,3.2vw,40px);font-weight:900;line-height:1.5}
+.nums-hd p{color:rgba(255,255,255,.6);font-size:14px;max-width:380px}
+.n-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.n-card{grid-column:span 2}
+.n-card:nth-child(n+4){grid-column:span 3}
+.n-card{border:1px solid var(--line-d);border-radius:20px;padding:30px 28px 26px;min-height:230px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,0))}
+.n-card .lb{font-size:14px;color:rgba(255,255,255,.75)}
+.n-card .v{font-family:"Inter Tight";font-weight:500;font-size:clamp(40px,5vw,72px);letter-spacing:-.04em;line-height:1;white-space:nowrap}
+.n-card .v small{font-family:"Noto Sans JP";font-size:16px;font-weight:700;letter-spacing:0;margin-left:6px;color:var(--yellow)}
+.n-card .ft{font-size:11px;color:rgba(255,255,255,.45)}
+.notes{margin-top:26px;font-size:12px;color:rgba(255,255,255,.45);line-height:1.9}
+.photo{margin-top:80px;border-radius:24px;aspect-ratio:21/9;position:relative;overflow:hidden;background:radial-gradient(600px 300px at 20% 30%,rgba(90,169,255,.35),transparent 60%),radial-gradient(500px 280px at 80% 70%,rgba(255,198,41,.18),transparent 60%),linear-gradient(135deg,#0F2455,#07132E);display:grid;place-items:center;border:1px dashed rgba(255,255,255,.25)}
+.photo span{font-size:13px;color:rgba(255,255,255,.6);letter-spacing:.1em;text-align:center}
+
+.ph{position:absolute;inset:17%;border-radius:50%;background-size:cover;background-position:center;box-shadow:0 0 0 1px rgba(255,255,255,.18),0 30px 80px rgba(0,0,0,.45),inset 0 0 40px rgba(5,14,36,.2)}
+.ph::after{content:"";position:absolute;inset:0;border-radius:50%;background:linear-gradient(160deg,rgba(30,94,255,.08),rgba(5,14,36,.1))}
+.chip{position:absolute;font-family:"Inter Tight";font-weight:500;font-size:clamp(12px,1.2vw,15px);padding:9px 18px;border-radius:999px;background:rgba(10,26,63,.72);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;animation:float 7s ease-in-out infinite}
+.chip.y{background:var(--yellow);border-color:var(--yellow);color:var(--ink);animation-delay:-3s}
+/* team photos */
+.team{margin-top:80px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.team figure{margin:0;border-radius:24px;overflow:hidden;position:relative}
+.team figure img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.team figure:hover img{transform:scale(1.04)}
+.team .main{grid-column:1/-1;aspect-ratio:21/9}
+.team .sub{aspect-ratio:3/2}
+.team figcaption{position:absolute;left:24px;bottom:20px;font-family:"Inter Tight";font-size:14px;color:#fff;display:flex;align-items:center;gap:10px;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.team figcaption::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yellow)}
+.team .main::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,14,36,.55));pointer-events:none}
+
+/* ===== Services ===== */
+.svc{padding:160px 0 120px}
+.sec-k{font-family:"Inter Tight";font-size:18px;color:var(--muted)}
+.sec-t{font-size:clamp(28px,3.6vw,46px);font-weight:900;line-height:1.45;margin-top:8px}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:64px}
+.card{background:var(--ice);border-radius:24px;padding:40px;display:flex;flex-direction:column;min-height:420px;position:relative;overflow:hidden;transition:background .35s}
+.card:hover{background:#E3EBF8}
+.card .top{display:flex;justify-content:space-between;align-items:flex-start}
+.card .no{font-family:"Inter Tight";font-size:15px;color:var(--muted)}
+.card .mini{width:110px;height:110px;position:relative;margin:-10px -10px 0 0}
+.card .enh{font-family:"Inter Tight";font-weight:500;font-size:clamp(28px,2.6vw,38px);letter-spacing:-.02em;line-height:1.1;margin-top:auto}
+.card h3{font-size:20px;font-weight:700;margin-top:10px}
+.card p{font-size:14.5px;color:var(--text);margin-top:12px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.tag{font-family:"Inter Tight","Noto Sans JP";font-size:12.5px;padding:5px 14px;border-radius:999px;border:1px solid rgba(10,22,51,.18);background:#fff}
+.card.sm{min-height:0}
+.card.sm .enh{font-size:26px;margin-top:40px}
+
+.areas{padding:0 0 120px}
+.ar-block+.ar-block{margin-top:64px}
+.ar-h{display:flex;align-items:center;gap:14px;font-size:22px;font-weight:700;margin-bottom:26px}
+.ar-h::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 6px rgba(30,94,255,.12)}
+.pills{display:flex;flex-wrap:wrap;gap:12px}
+.pill{border:1px solid var(--line);border-radius:10px;padding:14px 26px;font-weight:500;font-size:15px;transition:border-color .2s,background .2s}
+.pill:hover{border-color:var(--ink);background:var(--ice)}
+
+/* ===== Flow ===== */
+.flow{padding:120px 0;background:var(--ice)}
+.flow-in{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
+.steps{position:relative}
+.steps::before{content:"";position:absolute;left:36px;top:36px;bottom:60px;width:1px;background:var(--ink)}
+.steps .end{position:relative;height:60px;margin-left:36px;margin-top:-56px;border-left:1px solid var(--ink);border-bottom:1px solid var(--ink);border-bottom-left-radius:40px}
+.steps .end::after{content:"";position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border-radius:50%;background:var(--ink)}
+.step{display:grid;grid-template-columns:72px 1fr;gap:34px;padding-bottom:56px;position:relative}
+.step .sq{width:72px;height:72px;border-radius:14px;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:"Inter Tight";font-size:24px;position:relative;z-index:1}
+.step:nth-last-child(2) .sq{background:var(--yellow);color:var(--ink)}
+.step h4{font-size:22px;font-weight:700;margin-top:14px}
+.step p{color:var(--text);font-size:15px;margin-top:8px}
+
+/* ===== Big CTA ===== */
+.cta{padding:120px 0}
+.cta h2{font-size:clamp(28px,3.6vw,46px);font-weight:900;line-height:1.45;margin-bottom:48px}
+.big{display:flex;justify-content:space-between;align-items:center;gap:16px;border-radius:999px;padding:30px 34px 30px 44px;font-size:20px;font-weight:700;border:1.5px solid var(--ink);transition:transform .3s}
+.big+.big{margin-top:18px}
+.big:hover{transform:translateY(-3px)}
+.big.fill-d{background:var(--ink);color:#fff}
+.big.fill-b{background:var(--blue);border-color:var(--blue);color:#fff}
+.big .c{width:64px;height:64px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none}
+.big .c::after{content:"";width:8px;height:8px;border-radius:50%;background:#fff}
+.big.fill-d .c,.big.fill-b .c{background:#fff}
+.big.fill-d .c::after,.big.fill-b .c::after{background:var(--ink)}
+.big:hover .c::after{background:var(--yellow)}
+.big small{display:block;font-size:13px;font-weight:400;opacity:.7;margin-top:4px}
+
+/* ===== Company ===== */
+.company{padding:40px 0 140px}
+.co-in{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px}
+dl.co{border-top:1px solid var(--ink)}
+dl.co div{display:grid;grid-template-columns:170px 1fr;padding:26px 4px;border-bottom:1px solid var(--line)}
+dl.co dt{font-weight:700}
+dl.co dd{color:var(--text)}
+dl.co dd small{display:block;font-size:12px;color:var(--muted)}
+dl.co dd .of+.of{margin-top:12px}
+
+/* ===== Footer ===== */
+footer{background:var(--deep);color:#fff;padding:120px 0 40px;border-radius:40px 40px 0 0;overflow:hidden;position:relative}
+.f-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;position:relative;z-index:1}
+.f-top h5{font-family:"Inter Tight";font-weight:500;font-size:14px;opacity:.5;margin-bottom:16px}
+.f-top ul{list-style:none;display:grid;gap:10px;font-size:14px}
+.f-top a:hover{color:var(--yellow)}
+.f-top p{font-size:13px;color:rgba(255,255,255,.6);line-height:2;margin-top:20px}
+.wordmark{font-family:"Inter Tight";font-weight:500;font-size:clamp(72px,17vw,260px);letter-spacing:-.05em;line-height:1.05;padding-bottom:.08em;margin-top:100px;background:linear-gradient(180deg,#fff 20%,rgba(255,255,255,.08));-webkit-background-clip:text;background-clip:text;color:transparent;position:relative;z-index:1;white-space:nowrap}
+.f-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line-d);padding-top:24px;margin-top:20px;font-size:12px;color:rgba(255,255,255,.5);position:relative;z-index:1}
+.f-glow{position:absolute;right:-10%;bottom:-30%;width:70vw;height:70vw;border-radius:50%;background:radial-gradient(circle,rgba(30,94,255,.35),transparent 60%);filter:blur(30px)}
+
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ===== Responsive ===== */
+@media (max-width:980px){
+  .wrap{padding:0 24px}
+  .hd{width:calc(100% - 32px);top:12px}
+  .hd nav a.l{display:none}
+  .vision-in,.w-item,.co-in,.flow-in{grid-template-columns:minmax(0,1fr);gap:48px}
+  .w-item:nth-child(even) .w-vis{order:0}
+  .w-item{padding-top:96px}
+  .v-orb{justify-self:center;max-width:380px}
+  .n-grid{grid-template-columns:1fr 1fr}
+  .n-card,.n-card:nth-child(n+4){grid-column:auto}
+  .n-card:last-child{grid-column:1/-1}
+  .nums-hd{flex-direction:column;align-items:flex-start;gap:12px}
+  .svc-grid{grid-template-columns:minmax(0,1fr)}
+  .f-top{grid-template-columns:1fr 1fr}
+  .f-top>div:first-child{grid-column:1/-1}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .hd{padding:8px 8px 8px 14px}
+  .brand img{width:32px}.brand .nm{font-size:17px}
+  .brand .nm small{font-size:9px}
+  .menu{padding:11px 16px}
+  .intro{height:200vh}
+  .vision{padding-bottom:110px}
+  .why,.svc{padding-top:110px}
+  .card{padding:30px 24px;min-height:360px}
+  .n-grid{gap:10px}
+  .n-card{min-height:160px;padding:20px 16px}
+  .n-card .v small{font-size:13px;margin-left:3px}
+  .nums-hd{flex-direction:column;align-items:flex-start;gap:12px}
+  .row{grid-template-columns:1fr auto;gap:6px 16px}
+  .row .d{grid-column:1/-1}
+  .step{grid-template-columns:56px 1fr;gap:20px}
+  .step .sq{width:56px;height:56px;font-size:20px}
+  .steps::before{left:28px;top:28px}.steps .end{margin-left:28px}
+  .step h4{font-size:19px;margin-top:10px}
+  .big{padding:20px 16px 20px 26px;font-size:17px}
+  .big .c{width:48px;height:48px}
+  dl.co div{grid-template-columns:1fr;gap:4px}
+  .team{grid-template-columns:1fr;gap:10px;margin-top:56px}
+  .team .main{aspect-ratio:3/2}
+  .chip{padding:7px 13px}
+  .dot-btn .c{width:56px;height:56px}
+}
+@media (prefers-reduced-motion:reduce){
+  .rv,.vision h2 .ln>span{opacity:1;transform:none;transition:none}
+  .ring,.bubble{animation:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hd" id="hd">
+  <a href="#" class="brand"><img src="logo.svg" alt=""><span class="nm">LongWave<small>Talent &amp; Growth Partners</small></span></a>
+  <nav>
+    <a class="l" href="#why">Why LongWave</a>
+    <a class="l" href="#services">Services</a>
+    <a class="l" href="#company">Company</a>
+    <a class="l" href="https://longwave.co.jp/media/">Media</a>
+    <button class="menu" id="menuBtn" aria-label="メニュー"><span id="menuTx">Menu</span> <i><b></b><b></b><b></b></i></button>
+  </nav>
+</header>
+<div class="overlay" id="overlay">
+  <div class="wrap" style="width:100%;padding:0">
+    <a href="#vision">Vision <small>私たちについて</small></a>
+    <a href="#why">Why LongWave <small>選ばれる理由</small></a>
+    <a href="#services">Services <small>事業内容</small></a>
+    <a href="#flow">Flow <small>ご相談の流れ</small></a>
+    <a href="#company">Company <small>会社概要</small></a>
+    <a href="#contact">Contact <small>お問い合わせ</small></a>
+  </div>
+</div>
+
+<!-- ===== Intro (scroll fill) ===== -->
+<section class="intro" id="intro">
+  <div class="intro-stick">
+    <div class="intro-glow" id="glow"></div>
+    <div class="fill" id="fill" aria-label="Hub for Future"></div>
+    <div class="intro-sub" id="isub">世界の才能が集まる場所</div>
+  </div>
+</section>
+
+<!-- ===== Vision ===== -->
+<section class="vision" id="vision">
+  <div class="wrap vision-in">
+    <div>
+      <h2><span class="ln"><span>世界の才能と共に、</span></span><span class="ln"><span><em>日本の未来</em>を</span></span><span class="ln"><span>創る。</span></span></h2>
+      <p class="rv">私たちは、バイリンガルITエンジニアの人材紹介と、全国・地方の訪問営業人材ネットワークを活かした営業支援で、日本企業の成長を支える人材のプロフェッショナル集団です。言語と文化の壁を越えて成果を出せる「人」を、日本企業とつなぎます。</p>
+      <a class="dot-btn rv" href="#why">Our Vision <span class="c"></span></a>
+    </div>
+    <div class="v-orb rv" aria-hidden="true">
+      <div class="ring"></div><div class="ring sharp"></div>
+      <div class="bubble" style="width:34%;height:34%;left:14%;top:24%;font-size:clamp(13px,1.4vw,17px)">Talent</div>
+      <div class="bubble y" style="width:30%;height:30%;right:14%;top:38%;font-size:clamp(13px,1.4vw,17px);animation-delay:-2s">Company</div>
+      <div class="bubble s" style="width:17%;height:17%;left:40%;bottom:16%;animation-delay:-4s"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Topics rows ===== -->
+<section style="padding:0 0 140px">
+  <div class="wrap">
+    <div class="rows rv">
+      <a class="row" href="https://longwave.co.jp/media/"><span class="d">Media</span><span class="t">営業支援メディア「エイギョウブ」で、営業組織づくりのノウハウを発信しています</span><span class="c"></span></a>
+      <a class="row" href="#contact"><span class="d">Recruit</span><span class="t">多様な才能が交わる場所で、一緒に未来を創る仲間を募集しています</span><span class="c"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Why (dark) ===== -->
+<section class="why on-dark" id="why">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">Why LongWave</div>
+      <h2 class="ttl">LongWaveが選ばれる<em>理由</em></h2>
+    </div>
+
+    <div class="w-list">
+      <div class="w-item">
+        <div class="w-vis rv" aria-hidden="true">
+          <div class="ring"></div><div class="ring sharp"></div>
+          <div class="ph" style="background-image:url(photos/why-network.jpg)"></div>
+          <div class="chip" style="left:2%;top:18%">Engineer</div>
+          <div class="chip y" style="right:0;bottom:20%">Bilingual</div>
+          <div class="bubble s" style="width:11%;height:11%;right:10%;top:8%;animation-delay:-2s"></div>
+          <div class="bubble y" style="width:7%;height:7%;left:12%;bottom:8%;animation-delay:-4s"></div>
+        </div>
+        <div class="rv">
+          <h3>Global Talent,<br>Deep Network.</h3>
+          <h4>バイリンガル人材に強い、独自のネットワーク。</h4>
+          <p>エンジニア約15,000名、営業人材 約1,000名。語学力と専門性を併せ持つ人材に独自のネットワークでアクセスし、技術・語学・カルチャーの3軸でマッチングします。</p>
+          <a class="dot-btn" href="#services">View More <span class="c"></span></a>
+        </div>
+      </div>
+
+      <div class="w-item">
+        <div class="w-vis rv" aria-hidden="true">
+          <div class="ring"></div><div class="ring sharp"></div>
+          <div class="ph" style="background-image:url(photos/why-field.jpg)"></div>
+          <div class="chip" style="left:2%;top:18%">Field</div>
+          <div class="chip y" style="right:0;bottom:20%">Nationwide</div>
+          <div class="bubble s" style="width:11%;height:11%;right:10%;top:8%;animation-delay:-2s"></div>
+          <div class="bubble y" style="width:7%;height:7%;left:12%;bottom:8%;animation-delay:-4s"></div>
+        </div>
+        <div class="rv">
+          <h3>Field Power,<br>Nationwide.</h3>
+          <h4>地方の訪問営業人材ネットワーク。</h4>
+          <p>累計800人規模の訪問営業人材が、全国・地方で稼働してきました。オンラインでは届かない経営者や現場責任者にも、対面で会いに行けるのがLongWaveの営業支援の強みです。</p>
+          <a class="dot-btn" href="#services">View More <span class="c"></span></a>
+        </div>
+      </div>
+
+      <div class="w-item">
+        <div class="w-vis rv" aria-hidden="true">
+          <div class="ring"></div><div class="ring sharp"></div>
+          <div class="ph" style="background-image:url(photos/why-team.jpg)"></div>
+          <div class="chip" style="left:2%;top:18%">Hiring</div>
+          <div class="chip y" style="right:0;bottom:20%">Sales</div>
+          <div class="bubble s" style="width:11%;height:11%;right:10%;top:8%;animation-delay:-2s"></div>
+          <div class="bubble y" style="width:7%;height:7%;left:12%;bottom:8%;animation-delay:-4s"></div>
+        </div>
+        <div class="rv">
+          <h3>Two Engines,<br>One Team.</h3>
+          <h4>採用と営業、両方から成長を支える。</h4>
+          <p>「人を採る」エンジニア紹介と、「売上をつくる」営業支援。事業成長に欠かせない2つの領域を、ひとつのチームで支援できるのがLongWaveの強みです。</p>
+          <a class="dot-btn" href="#services">View More <span class="c"></span></a>
+        </div>
+      </div>
+
+      <div class="w-item">
+        <div class="w-vis rv" aria-hidden="true">
+          <div class="ring"></div>
+          <svg class="orb-lines" viewBox="0 0 100 100"><g stroke="rgba(255,255,255,.35)" stroke-width=".25"><line x1="20" y1="72" x2="80" y2="72"/><line x1="20" y1="72" x2="20" y2="28"/></g><polyline points="22,66 34,60 46,62 58,48 70,42 80,30" fill="none" stroke="#FFC629" stroke-width=".8"/><g fill="#fff"><circle cx="34" cy="60" r="1"/><circle cx="46" cy="62" r="1"/><circle cx="58" cy="48" r="1"/><circle cx="70" cy="42" r="1"/></g></svg>
+          <div class="bubble" style="width:22%;height:22%;left:66%;top:16%;font-size:clamp(11px,1.1vw,14px)">Data</div>
+          <div class="bubble s" style="width:16%;height:16%;left:26%;top:26%;font-size:clamp(11px,1vw,13px);animation-delay:-3s">AI</div>
+        </div>
+        <div class="rv">
+          <h3>Data-Driven,<br>Human-Led.</h3>
+          <h4>仕組みで再現し、人で伴走する。</h4>
+          <p>進捗を日々データで可視化し、計画との差を週次で点検。AIも活用しながら、属人的な勘ではなく再現性のある仕組みで、採用決定・受注という成果にこだわります。</p>
+          <a class="dot-btn" href="#flow">View More <span class="c"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Numbers (dark) ===== -->
+<section class="nums">
+  <div class="wrap">
+    <div class="nums-hd rv">
+      <h2>人材ネットワークと<br>実績</h2>
+      <p>バイリンガルのITエンジニアから、全国・地方の訪問営業人材まで。独自のネットワークで、必要な人材にアクセスできます。</p>
+    </div>
+    <div class="n-grid">
+      <div class="n-card rv"><div class="lb">登録エンジニア データベース</div><div><div class="v">15,000<small>名</small></div><div class="ft">（※1）</div></div></div>
+      <div class="n-card rv"><div class="lb">エンジニア紹介 取引企業</div><div><div class="v">100<small>社+</small></div><div class="ft">（※1）</div></div></div>
+      <div class="n-card rv"><div class="lb">稼働実績のある 営業人材</div><div><div class="v">1,000<small>名</small></div><div class="ft">（※1）</div></div></div>
+      <div class="n-card rv"><div class="lb">営業支援 導入企業</div><div><div class="v">60<small>社+</small></div><div class="ft">（※1）</div></div></div>
+      <div class="n-card rv"><div class="lb">訪問営業人材（累計）</div><div><div class="v">800<small>人規模</small></div><div class="ft">（※1）</div></div></div>
+    </div>
+    <div class="notes">※1 2026年8月時点・自社調べ</div>
+    <div class="team">
+      <figure class="main rv"><picture><source media="(max-width:560px)" srcset="photos/team-mobile.jpg"><img src="photos/team-wide.jpg" alt="LongWaveのメンバー集合写真" loading="lazy"></picture><figcaption>Our Team</figcaption></figure>
+      <figure class="sub rv"><img src="photos/g-talk.jpg" alt="ディスカッションするメンバー" loading="lazy"><figcaption>Discussion</figcaption></figure>
+      <figure class="sub rv"><img src="photos/g-collab.jpg" alt="ワークに取り組むメンバー" loading="lazy"><figcaption>Collaboration</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Services ===== -->
+<section class="svc" id="services">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-k">Services</div>
+      <h2 class="sec-t">事業内容</h2>
+    </div>
+    <div class="svc-grid">
+      <a class="card rv" href="#contact">
+        <div class="top"><span class="no">01</span><div class="mini" aria-hidden="true"><div class="bubble" style="inset:12%;animation-delay:-1s"></div></div></div>
+        <div class="enh">Engineer<br>Recruitment</div>
+        <h3>エンジニア紹介</h3>
+        <p>バイリンガル・外国籍を含む即戦力ITエンジニアを、成功報酬型でご紹介します。</p>
+        <div class="tags"><span class="tag">Technology</span><span class="tag">Bilingual</span><span class="tag">成功報酬型</span></div>
+      </a>
+      <a class="card rv" href="#contact">
+        <div class="top"><span class="no">02</span><div class="mini" aria-hidden="true"><div class="bubble y" style="inset:12%;animation-delay:-3s"></div></div></div>
+        <div class="enh">Growth<br>Partner</div>
+        <h3>営業支援</h3>
+        <p>営業設計からアポイント獲得・訪問・商談・受注まで一貫して支援。全国・地方の訪問営業人材ネットワークで、対面が欠かせない営業にも対応します。</p>
+        <div class="tags"><span class="tag">Sales</span><span class="tag">訪問営業</span><span class="tag">全国・地方</span><span class="tag">人材アサイン型</span></div>
+      </a>
+      <a class="card sm rv" href="#contact">
+        <div class="top"><span class="no">03</span></div>
+        <div class="enh">M&amp;A Advisory</div>
+        <h3>M&amp;A支援</h3>
+        <p>中小企業のM&amp;Aを中立・公正な立場で支援。事業承継と、その先の成長まで伴走します。</p>
+      </a>
+      <a class="card sm rv" href="#contact">
+        <div class="top"><span class="no">04</span></div>
+        <div class="enh">Development</div>
+        <h3>受託開発</h3>
+        <p>ビジネス戦略に合わせたシステム開発。バイリンガル対応で、海外メンバーとの開発にも対応します。</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Areas ===== -->
+<section class="areas">
+  <div class="wrap">
+    <div class="ar-block rv">
+      <div class="ar-h">LongWaveが支援する人材</div>
+      <div class="pills"><a class="pill" href="#contact">バイリンガル／グローバル人材</a><a class="pill" href="#contact">外国籍ITエンジニア</a><a class="pill" href="#contact">即戦力エンジニア</a><a class="pill" href="#contact">営業のプロフェッショナル</a><a class="pill" href="#contact">地方の訪問営業人材</a></div>
+    </div>
+    <div class="ar-block rv">
+      <div class="ar-h">強みをもつ領域・職種</div>
+      <div class="pills"><a class="pill" href="#contact">ソフトウェア開発</a><a class="pill" href="#contact">インフラ／運用保守</a><a class="pill" href="#contact">QA／テスト</a><a class="pill" href="#contact">訪問営業（全国・地方）</a><a class="pill" href="#contact">インサイドセールス</a><a class="pill" href="#contact">フィールドセールス</a><a class="pill" href="#contact">カスタマーサクセス</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Flow ===== -->
+<section class="flow" id="flow">
+  <div class="wrap flow-in">
+    <div class="rv">
+      <div class="sec-k">Flow</div>
+      <h2 class="sec-t">ご相談から<br>成果まで</h2>
+      <p style="margin-top:22px;color:var(--text)">採用・営業のどちらからでもご相談いただけます。課題の整理から一緒に進めます。</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="sq">1</div><div><h4>お問い合わせ</h4><p>フォームからお気軽にご連絡ください。</p></div></div>
+      <div class="step rv"><div class="sq">2</div><div><h4>ヒアリング</h4><p>事業・組織の課題と、求める人物像や営業目標を伺います。</p></div></div>
+      <div class="step rv"><div class="sq">3</div><div><h4>ご提案</h4><p>最適な人材・支援プランを、根拠とあわせてご提案します。</p></div></div>
+      <div class="step rv"><div class="sq">4</div><div><h4>実行・伴走</h4><p>候補者のご紹介、営業活動の実行。進捗はデータで共有します。</p></div></div>
+      <div class="step rv"><div class="sq">5</div><div><h4>成果と定着</h4><p>採用決定・受注の後も、入社後の定着や次の打ち手まで伴走します。</p></div></div>
+      <div class="end"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2 class="rv">採用・営業のお悩み、<br>まずはご相談ください。</h2>
+    <a class="big rv" href="https://longwave.co.jp/contact/"><span>エンジニア採用を相談する<small>バイリンガル・外国籍エンジニアの人材紹介</small></span><span class="c"></span></a>
+    <a class="big fill-b rv" href="https://longwave.co.jp/contact/"><span>営業支援を相談する<small>営業設計・アポ獲得・訪問営業・人材アサイン</small></span><span class="c"></span></a>
+    <a class="big fill-d rv" href="https://longwave.co.jp/contact/"><span>その他のお問い合わせ<small>M&amp;A支援・受託開発・採用エントリーなど</small></span><span class="c"></span></a>
+  </div>
+</section>
+
+<!-- ===== Company ===== -->
+<section class="company" id="company">
+  <div class="wrap co-in">
+    <div class="rv">
+      <div class="sec-k">Company</div>
+      <h2 class="sec-t">会社概要</h2>
+    </div>
+    <dl class="co rv">
+      <div><dt>会社名</dt><dd>LongWave株式会社</dd></div>
+      <div><dt>代表者</dt><dd>代表取締役　古賀 勇輝</dd></div>
+      <div><dt>設立</dt><dd>2022年2月18日</dd></div>
+      <div><dt>資本金</dt><dd>2,500万円</dd></div>
+      <div><dt>所在地</dt><dd><div class="of"><small>本社</small>〒102-0083 東京都千代田区麹町1丁目8-1 THE GATE HANZOMON 1F</div><div class="of"><small>福岡支社</small>〒810-0001 福岡県福岡市中央区天神2丁目2番12号 T&amp;Jビルディング7F</div></dd></div>
+      <div><dt>事業内容</dt><dd>エンジニア紹介事業／営業支援事業／M&amp;A支援事業／受託開発事業</dd></div>
+      <div><dt>許認可</dt><dd>有料職業紹介事業許可　13-ユ-314616</dd></div>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <div class="f-glow"></div>
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <a href="#" class="brand"><img src="logo.svg" alt=""><span class="nm">LongWave<small>Talent &amp; Growth Partners</small></span></a>
+        <p>本社｜東京都千代田区麹町1丁目8-1 THE GATE HANZOMON 1F<br>福岡支社｜福岡県福岡市中央区天神2丁目2番12号 T&amp;Jビルディング7F</p>
+      </div>
+      <div><h5>Services</h5><ul><li><a href="#services">エンジニア紹介</a></li><li><a href="#services">営業支援</a></li><li><a href="#services">M&amp;A支援</a></li><li><a href="#services">受託開発</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="#vision">私たちについて</a></li><li><a href="#company">会社概要</a></li><li><a href="https://longwave.co.jp/media/">エイギョウブ</a></li><li><a href="https://longwave.co.jp/contact/">お問い合わせ</a></li><li><a href="#">プライバシーポリシー</a></li></ul></div>
+    </div>
+    <div class="wordmark">LongWave</div>
+    <div class="f-bot"><span>© LongWave, Inc.</span><span>有料職業紹介事業許可 13-ユ-314616</span></div>
+  </div>
+</footer>
+
+<script>
+const word="Hub for Future", fill=document.getElementById('fill');
+[...word].forEach((ch,i)=>{const s=document.createElement('span');s.textContent=ch===' '?' ':ch;if(i>=8)s.className='acc';fill.appendChild(s)});
+const letters=[...fill.children], intro=document.getElementById('intro'), isub=document.getElementById('isub'), glow=document.getElementById('glow');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function onIntro(){
+  const r=intro.getBoundingClientRect(), total=intro.offsetHeight-innerHeight;
+  const p=reduce?1:Math.min(1,Math.max(0,(-r.top)/(total*.7)));
+  const n=Math.round(p*letters.length);
+  letters.forEach((s,i)=>s.classList.toggle('on',i<n));
+  isub.classList.toggle('show',p>=1); glow.classList.toggle('show',p>=1);
+}
+const hd=document.getElementById('hd'), ov=document.getElementById('overlay'), darks=[...document.querySelectorAll('.why,.nums,footer')];
+function onHeader(){if(ov.classList.contains('open'))return;const y=50;hd.classList.toggle('dark',darks.some(d=>{const b=d.getBoundingClientRect();return b.top<y&&b.bottom>y}))}
+addEventListener('scroll',()=>{onIntro();onHeader()},{passive:true});onIntro();onHeader();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv,.vision').forEach(el=>io.observe(el));
+const tx=document.getElementById('menuTx');
+document.getElementById('menuBtn').addEventListener('click',()=>{const o=ov.classList.toggle('open');tx.textContent=o?'Close':'Menu';hd.classList.toggle('dark',o);if(!o)onHeader()});
+ov.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ov.classList.remove('open');tx.textContent='Menu';onHeader()}));
+</script>
+</body>
+</html>
